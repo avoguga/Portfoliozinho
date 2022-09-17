@@ -36,10 +36,10 @@ export function Content() {
   }
   console.log(isDale)
   return (
-    <Container>
+    <Container isDale={isDale}>
       <SoundButton isDale={isDale} onClick={playSound}>DALE</SoundButton>
-      <PauseButton onClick={pauseSound}>PAUSA O DALE</PauseButton>
-      <StopButton onClick={stopSound}>PARA O DALE</StopButton>
+      <PauseButton isDale={isDale} onClick={pauseSound}>PAUSA O DALE</PauseButton>
+      <StopButton isDale={isDale} onClick={stopSound}>PARA O DALE</StopButton>
     </Container>
   );
 }

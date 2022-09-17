@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div<{isDale: boolean}>`
   grid-area: CT;
   background-color: whitesmoke;
 
@@ -8,6 +8,30 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  animation-name: ${props => (props.isDale ? `dele` : ``)};
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  @keyframes dele {
+    0% {
+      background-color: darkgoldenrod;
+    }
+    20% {
+      background-color: darkred;
+    }
+    40% {
+      background-color: darkblue;
+    }
+    60% {
+      background-color: darkmagenta;
+    }
+    80% {
+      background-color: darksalmon;
+    }
+    100% {
+      background-color: darkgoldenrod;
+    }
+  }
 `;
 
 // TO DO - REFATORAR ISSO NÉ IRMÃO TÁ FEIAO ESSA REPETIÇÃO AI
@@ -19,6 +43,7 @@ export const SoundButton = styled.button<{isDale: boolean}>`
   border: none;
   border-radius: 3px;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  width: 220px;
 
   color: #000;
   font-size: 20px;
@@ -29,12 +54,99 @@ export const SoundButton = styled.button<{isDale: boolean}>`
   background-repeat: no-repeat;
   background-position: 7px 10px;
   background-size: 25px;
-  position: relative;
 
   animation-name: ${props => (props.isDale ? `dale` : ``)};
-
   animation-iteration-count: infinite;
+  animation-duration: 5s;
 
+  &:hover {
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    background-color: #eeeeee;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
+      0 0 0 3px #c8dafc;
+  }
+
+  &:disabled {
+    filter: grayscale(100%);
+    background-color: #ebebeb;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+    cursor: not-allowed;
+  }
+`;
+
+export const PauseButton = styled.button<{isDale: boolean}>`
+  transition: background-color 0.3s, box-shadow 0.3s;
+  margin: 10px;
+  padding: 12px 16px 12px 42px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  width: 220px;
+
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+
+  background-image: url(https://www.svgrepo.com/show/44880/pause.svg);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 7px 10px;
+  background-size: 25px;
+
+  animation-name: ${props => (props.isDale ? `dale` : ``)};
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+
+  &:hover {
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    background-color: #eeeeee;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
+      0 0 0 3px #c8dafc;
+  }
+
+  &:disabled {
+    filter: grayscale(100%);
+    background-color: #ebebeb;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+    cursor: not-allowed;
+  }
+`;
+
+export const StopButton = styled.button<{isDale: boolean}>`
+  transition: background-color 0.3s, box-shadow 0.3s;
+  margin: 10px;
+  padding: 12px 16px 12px 42px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
+  width: 220px;
+
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+
+  background-image: url(https://www.svgrepo.com/show/53664/stop.svg);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: 7px 10px;
+  background-size: 25px;
+
+  animation-name: ${props => (props.isDale ? `dale` : ``)};
+  animation-iteration-count: infinite;
   animation-duration: 5s;
   @keyframes dale {
     0% {
@@ -62,86 +174,6 @@ export const SoundButton = styled.button<{isDale: boolean}>`
       background-color: red;
     }
   }
-
-  &:hover {
-    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
-  }
-
-  &:active {
-    background-color: #eeeeee;
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
-      0 0 0 3px #c8dafc;
-  }
-
-  &:disabled {
-    filter: grayscale(100%);
-    background-color: #ebebeb;
-    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
-    cursor: not-allowed;
-  }
-`;
-
-export const PauseButton = styled.button`
-  transition: background-color 0.3s, box-shadow 0.3s;
-  margin: 10px;
-  padding: 12px 16px 12px 42px;
-  border: none;
-  border-radius: 3px;
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
-
-  color: #000;
-  font-size: 20px;
-  font-weight: bold;
-
-  background-image: url(https://www.svgrepo.com/show/44880/pause.svg);
-  background-color: white;
-  background-repeat: no-repeat;
-  background-position: 7px 10px;
-  background-size: 25px;
-
-  &:hover {
-    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
-  }
-
-  &:active {
-    background-color: #eeeeee;
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
-      0 0 0 3px #c8dafc;
-  }
-
-  &:disabled {
-    filter: grayscale(100%);
-    background-color: #ebebeb;
-    box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
-    cursor: not-allowed;
-  }
-`;
-
-export const StopButton = styled.button`
-  transition: background-color 0.3s, box-shadow 0.3s;
-  margin: 10px;
-  padding: 12px 16px 12px 42px;
-  border: none;
-  border-radius: 3px;
-  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
-
-  color: #000;
-  font-size: 20px;
-  font-weight: bold;
-
-  background-image: url(https://www.svgrepo.com/show/53664/stop.svg);
-  background-color: white;
-  background-repeat: no-repeat;
-  background-position: 7px 10px;
-  background-size: 25px;
 
   &:hover {
     box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
