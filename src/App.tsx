@@ -1,10 +1,11 @@
-import Content from "./components/Content";
+import Footer from "./components/Footer";
 import MainHeader from "./components/MainHeader";
 import { AuthContext } from "./contexts/AuthContexts";
 import { Layout } from "./styles/Layout";
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
+import Content from "./components/Content";
 
 // Types - Interfaces
 
@@ -61,6 +62,7 @@ function App() {
       <AuthContext.Provider value={{ userName, userProfile, signInWithGoogle, isUserLogIn }}>
         <MainHeader />
         <Content />
+        <Footer />
       </AuthContext.Provider>
     </Layout>
   );
