@@ -1,10 +1,10 @@
-import { Container } from './styles'
+import { Container, UserProfile, UserName } from './styles'
 
-export default function UserCard(userProfile: string, userName: string) {
+export default function UserCard({userProfile, userName}: any) {
   return (
     <Container>
-        <img src={userProfile} alt="" />
-        <h1>{userName}</h1>
+        <UserName>{userName}</UserName>
+        <UserProfile src={userProfile} alt="User profile" />
     </Container>
   )
 }

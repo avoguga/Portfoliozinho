@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   grid-area: MH;
-  background-color: #003459;
+  background-color: #00A7E1;
 
   display: flex;
   justify-content: space-between;
