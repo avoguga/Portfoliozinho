@@ -36,7 +36,7 @@ function App() {
   const [userProfile, setUserProfile] = useState<IUser>();
   const [userEmail, setUserEmail] = useState();
   const [userName, setUserName] = useState();
-  const [isUserLogIn, setIsUserLogIn] = useState(false);
+  const [isUserLogIn, setIsUserLogIn] = useState(true);
 
 
   const signInWithGoogle = () => {
@@ -49,7 +49,7 @@ function App() {
         setUserName(name);
         setUserEmail(email);
         setUserProfile(profilePic);
-        setIsUserLogIn(true)
+        setIsUserLogIn(false)
       })
       .catch((error) => {
         console.log(error);

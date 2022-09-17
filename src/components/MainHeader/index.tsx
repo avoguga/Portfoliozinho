@@ -4,10 +4,14 @@ import {
   SecondSectionDiv,
   ThirdSectionDiv,
   GoogleButton,
+  Icon,
+  Text
 } from "./styles";
 import UserCard from "../UserCard";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContexts";
+import React from "../../assets/react.svg";
+import Vite from "../../assets/vite.svg";
 
 export function MainHeader() {
   const { userName, userProfile, signInWithGoogle, isUserLogIn }: any =
@@ -15,16 +19,22 @@ export function MainHeader() {
 
   return (
     <Container>
-      <FirstSectionDiv></FirstSectionDiv>
-      <SecondSectionDiv />
-      <ThirdSectionDiv>
-        {isUserLogIn ? (
-          <UserCard userName={userName} userProfile={userProfile} />
-        ) : (
+      <FirstSectionDiv>
+        {
+        isUserLogIn ? (
           <GoogleButton onClick={signInWithGoogle}>
             Sign in with Google
           </GoogleButton>
+        ) : (
+          <UserCard userName={userName} userProfile={userProfile} />
         )}
+      </FirstSectionDiv>
+      <SecondSectionDiv />
+      <ThirdSectionDiv>
+        <Text>Made with</Text>
+        <Icon src={ Vite } alt="Foto do Gugas"/>
+        <Text>and</Text>
+        <Icon src={ React } alt="Foto do Gugas"/>
       </ThirdSectionDiv>
     </Container>
   );

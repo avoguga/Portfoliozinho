@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   grid-area: MH;
-  background-color: #00A7E1;
+  background: linear-gradient(90deg, #007EA7 0%, #003459 35%, #00171F 100%);
 
   display: flex;
   justify-content: space-between;
@@ -15,6 +15,8 @@ export const SecondSectionDiv = styled.div`
   margin: 10px;
 `;
 export const ThirdSectionDiv = styled.div`
+  display: flex;
+  align-items: center;
   margin: 10px;
 `;
 export const GoogleButton = styled.button`
@@ -56,4 +58,16 @@ export const GoogleButton = styled.button`
     box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
     cursor: not-allowed;
   }
+`;
+
+export const Icon = styled.img`
+  width: 2.5rem;
+  margin: 5px;
+`;
+
+export const Text = styled.p`
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
 `;
