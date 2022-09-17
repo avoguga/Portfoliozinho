@@ -1,11 +1,9 @@
-import { Container, GoogleThings } from "./styles";
+import { Container } from "./styles";
 
 export function Content() {
 
   return (
-    <Container>
-     
-    </Container>
+    <Container />
   );
 }
 

@@ -5,7 +5,7 @@ import {
   ThirdSectionDiv,
   GoogleButton,
 } from "./styles";
-import { GoogleThings } from "../Content/styles";
+import UserCard from "../UserCard";
 import { useState, useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContexts";
 
@@ -19,11 +19,7 @@ export function MainHeader() {
       <SecondSectionDiv />
       <ThirdSectionDiv>
         {isUserLogIn ? (
-          <GoogleThings>
-            <h2>User info: </h2>
-            <img src={userProfile} alt="" />
-            <h3>Username: {userName}</h3>
-          </GoogleThings>
+          <UserCard userName={userName} userProfile={userProfile} />
         ) : (
           <GoogleButton onClick={signInWithGoogle}>
             Sign in with Google
