@@ -6,6 +6,7 @@ export function Content() {
   const audioTune = new Audio(Sound);
 
   const [playInLoop, setPlayInLoop] = useState(false);
+  const [isDale, setIsDale] = useState(false);
 
   useEffect(() => {
     audioTune.load();
@@ -18,23 +19,25 @@ export function Content() {
   /** Toca a musica */
   const playSound = () => {
     audioTune.play();
+    setIsDale(true)
   };
 
   /** Pausa a musica */
   const pauseSound = () => {
+    setIsDale(false)
     audioTune.pause();
   };
 
   /** Para a musica */
   const stopSound = () => {
+    setIsDale(false)
     audioTune.pause();
     audioTune.currentTime = 0;
   }
-
-  SoundButton
+  console.log(isDale)
   return (
     <Container>
-      <SoundButton onClick={playSound}>DALE</SoundButton>
+      <SoundButton isDale={isDale} onClick={playSound}>DALE</SoundButton>
       <PauseButton onClick={pauseSound}>PAUSA O DALE</PauseButton>
       <StopButton onClick={stopSound}>PARA O DALE</StopButton>
     </Container>

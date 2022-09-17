@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 // TO DO - REFATORAR ISSO NÉ IRMÃO TÁ FEIAO ESSA REPETIÇÃO AI
 
-export const SoundButton = styled.button`
+export const SoundButton = styled.button<{isDale: boolean}>`
   transition: background-color 0.3s, box-shadow 0.3s;
   margin: 10px;
   padding: 12px 16px 12px 42px;
@@ -23,13 +23,45 @@ export const SoundButton = styled.button`
   color: #000;
   font-size: 20px;
   font-weight: bold;
- 
 
   background-image: url(https://www.svgrepo.com/show/393821/sound.svg);
   background-color: white;
   background-repeat: no-repeat;
   background-position: 7px 10px;
   background-size: 25px;
+  position: relative;
+
+  animation-name: ${props => (props.isDale ? `dale` : ``)};
+
+  animation-iteration-count: infinite;
+
+  animation-duration: 5s;
+  @keyframes dale {
+    0% {
+      left: 0px;
+      background-color: red;
+    }
+    20% {
+      left: -600px;
+      background-color: blue;
+    }
+    40% {
+      left: 600px;
+      background-color: green;
+    }
+    60% {
+      left: -600px;
+      background-color: yellow;
+    }
+    80% {
+      background-color: purple;
+      left: 600px;
+    }
+    100% {
+      left: 0px;
+      background-color: red;
+    }
+  }
 
   &:hover {
     box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
@@ -64,7 +96,6 @@ export const PauseButton = styled.button`
   color: #000;
   font-size: 20px;
   font-weight: bold;
- 
 
   background-image: url(https://www.svgrepo.com/show/44880/pause.svg);
   background-color: white;
@@ -105,7 +136,6 @@ export const StopButton = styled.button`
   color: #000;
   font-size: 20px;
   font-weight: bold;
- 
 
   background-image: url(https://www.svgrepo.com/show/53664/stop.svg);
   background-color: white;
