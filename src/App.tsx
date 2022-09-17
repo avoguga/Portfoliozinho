@@ -4,16 +4,23 @@ import { AuthContext } from "./contexts/AuthContexts"
 import { Layout } from "./styles/Layout"
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth"
-import { useState } from "react";
+// import { useState } from "react";
 
+// Hooks
+
+// const [userProfile, setUserProfile] = useState()
+// const [userName, setUserName] = useState()
+
+
+// Config Firebase
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCwC5Ic_Vtpw15pJQqq0x37lX3muKs5wcs",
-  authDomain: "auth-5c193.firebaseapp.com",
-  projectId: "auth-5c193",
-  storageBucket: "auth-5c193.appspot.com",
-  messagingSenderId: "310166154358",
-  appId: "1:310166154358:web:e353838d8dbfa4f6924357"
+  apiKey: import.meta.env.API_KEY,
+  authDomain: import.meta.env.,
+  projectId: import.meta.env.PROJECT_ID,
+  storageBucket: import.meta.env.STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.MESSAGING_SENDER_ID,
+  appId: import.meta.env.APP_ID
 };
 
 /** Initialize Firebase */
@@ -29,23 +36,16 @@ export const signInWithGoogle = () => {
     const email: any = result.user.email;
     const profilePic: any = result.user.photoURL;
 
-    localStorage.setItem("name", name);
-    localStorage.setItem("email", email);
-    localStorage.setItem("profilePic", profilePic);
-    
   }).catch((error) => {
     console.log(error);
   })
 };
 
-
-const [userProfile, setUserProfile] = useState()
-const [userName, setUserName] = useState()
-
 function App() {
 
   return (
     <Layout>
+      <h1>{import.meta.env.VITE_SOME_KEY}</h1>
       <AuthContext.Provider value={{}}>
         <MainHeader />
         <Content />
