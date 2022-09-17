@@ -26,8 +26,10 @@ export function Content() {
         <br />
         <h3>Acesse minhas redes:</h3>
         <br />
-        <p>Linkedin</p>
-        <p>Twitter</p>
+        <p><a href="https://www.linkedin.com/in/gustvo/" target="_blank">aaa</a></p>
+        <a href="">
+          <img src="https://www.svgrepo.com/show/157815/twitter.svg" alt="Acesse meu twitter" style={{width: '40px'}}/>
+        </a>
         <p>Instagram</p>
         <p>Medium</p>
 
