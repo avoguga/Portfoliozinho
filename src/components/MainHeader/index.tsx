@@ -5,30 +5,30 @@ import {
   ThirdSectionDiv,
   GoogleButton,
 } from "./styles";
-
 import { GoogleThings } from "../Content/styles";
 import { useState, useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContexts";
 
 export function MainHeader() {
-  const profile: any = localStorage.getItem("profilePic");
-  const name: any = localStorage.getItem("name");
-  const email = localStorage.getItem("email");
-
-
-
+  const { userName, userProfile, signInWithGoogle, isUserLogIn }: any =
+    useContext(AuthContext);
 
   return (
     <Container>
-      <FirstSectionDiv>
-        <GoogleThings>
-          <h2>User info: </h2>
-          <img src={profile} alt="" />
-          <h3>Username: {name}</h3>
-        </GoogleThings>
-      </FirstSectionDiv>
+      <FirstSectionDiv></FirstSectionDiv>
       <SecondSectionDiv />
       <ThirdSectionDiv>
-        <GoogleButton onClick={() => console.log('oi')}>Sign in with Google</GoogleButton>
+        {isUserLogIn ? (
+          <GoogleThings>
+            <h2>User info: </h2>
+            <img src={userProfile} alt="" />
+            <h3>Username: {userName}</h3>
+          </GoogleThings>
+        ) : (
+          <GoogleButton onClick={signInWithGoogle}>
+            Sign in with Google
+          </GoogleButton>
+        )}
       </ThirdSectionDiv>
     </Container>
   );
