@@ -9,7 +9,7 @@ import {
   SoundSection
 } from "./styles";
 import Sound from "../../assets/dale.mp3";
-import { AuthContext } from "../../contexts/AuthContexts";
+import { AuthContext, CabareContext } from "../../contexts/AuthContexts";
 
 export function Footer() {
   const { userName, userProfile, signInWithGoogle, isUserLogIn }: any =
