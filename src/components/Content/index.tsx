@@ -29,6 +29,15 @@ export function Content() {
         <br />
         <h2>Clique no DALE!</h2>
         <br />
+        <br />
+        <h2>ToDO ao VIVASSO:</h2>
+        <br />
+        <p>Deixar responsivo</p>
+        <p>Deixar acessivel</p>
+        <p>Adicionar algo legal</p>
+        <p>Colocar a musica num banco de dados e dar um fetch</p>
+        <p>Subir dominio</p>
+
       </FirstSection>
     </MainContainer>
   );
