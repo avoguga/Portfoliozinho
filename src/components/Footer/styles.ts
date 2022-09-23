@@ -1,14 +1,23 @@
 import styled from "styled-components";
 
-export const FooterContainer = styled.footer<{isDale: boolean}>`
+export const FooterContainer = styled.footer<{ isDale: boolean }>`
   grid-area: FT;
-  background: ${props => (props.isDale ? `` : `linear-gradient(90deg, #007EA7 0%, #003459 35%, #00171F 100%)`)};
+  background: ${(props) =>
+    props.isDale
+      ? ``
+      : `linear-gradient(90deg, #007EA7 0%, #003459 35%, #00171F 100%)`};
 
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  animation-name: ${props => (props.isDale ? `dele` : ``)};
+  margin-bottom:0px;
+  height: 70px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  animation-name: ${(props) => (props.isDale ? `dele` : ``)};
   animation-iteration-count: infinite;
   animation-duration: 5s;
   @keyframes dele {
@@ -35,7 +44,7 @@ export const FooterContainer = styled.footer<{isDale: boolean}>`
 
 // TO DO - REFATORAR ISSO NÉ IRMÃO TÁ FEIAO ESSA REPETIÇÃO AI
 
-export const SoundButton = styled.button<{isDale: boolean}>`
+export const SoundButton = styled.button<{ isDale: boolean }>`
   transition: background-color 0.3s, box-shadow 0.3s;
   margin: 10px;
   padding: 12px 16px 12px 42px;
@@ -54,7 +63,7 @@ export const SoundButton = styled.button<{isDale: boolean}>`
   background-position: 7px 10px;
   background-size: 25px;
 
-  animation-name: ${props => (props.isDale ? `dale` : ``)};
+  animation-name: ${(props) => (props.isDale ? `dale` : ``)};
   animation-iteration-count: infinite;
   animation-duration: 5s;
 
@@ -80,7 +89,7 @@ export const SoundButton = styled.button<{isDale: boolean}>`
   }
 `;
 
-export const PauseButton = styled.button<{isDale: boolean}>`
+export const PauseButton = styled.button<{ isDale: boolean }>`
   transition: background-color 0.3s, box-shadow 0.3s;
   margin: 10px;
   padding: 12px 16px 12px 42px;
@@ -99,7 +108,7 @@ export const PauseButton = styled.button<{isDale: boolean}>`
   background-position: 7px 10px;
   background-size: 25px;
 
-  animation-name: ${props => (props.isDale ? `dale` : ``)};
+  animation-name: ${(props) => (props.isDale ? `dale` : ``)};
   animation-iteration-count: infinite;
   animation-duration: 5s;
 
@@ -125,7 +134,7 @@ export const PauseButton = styled.button<{isDale: boolean}>`
   }
 `;
 
-export const StopButton = styled.button<{isDale: boolean}>`
+export const StopButton = styled.button<{ isDale: boolean }>`
   transition: background-color 0.3s, box-shadow 0.3s;
   margin: 10px;
   padding: 12px 16px 12px 42px;
@@ -144,7 +153,7 @@ export const StopButton = styled.button<{isDale: boolean}>`
   background-position: 7px 10px;
   background-size: 25px;
 
-  animation-name: ${props => (props.isDale ? `dale` : ``)};
+  animation-name: ${(props) => (props.isDale ? `dale` : ``)};
   animation-iteration-count: infinite;
   animation-duration: 5s;
   @keyframes dale {
@@ -196,12 +205,11 @@ export const StopButton = styled.button<{isDale: boolean}>`
   }
 `;
 
-
 export const Text = styled.p`
   font-size: 18px;
   font-weight: bold;
-  color: #FFFFFF;
-  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
 `;
 
 export const SoundSection = styled.div`

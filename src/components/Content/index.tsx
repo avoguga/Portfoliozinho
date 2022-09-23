@@ -1,4 +1,9 @@
-import { MainContainer, FirstSection, SecondSection, ThirdSection } from "./styles";
+import {
+  MainContainer,
+  FirstSection,
+  SecondSection,
+  ThirdSection,
+} from "./styles";
 
 export function Content() {
   return (
@@ -21,10 +26,9 @@ export function Content() {
         </p>
         <br />
         <h2>Teste o sign in do Google!</h2>
-        <br />  
+        <br />
         <h2>Clique no DALE!</h2>
         <br />
-
       </FirstSection>
     </MainContainer>
   );
