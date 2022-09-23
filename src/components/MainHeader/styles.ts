@@ -1,12 +1,36 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled.header<{isDale: boolean}>`
   grid-area: MH;
-  background: linear-gradient(90deg, #007EA7 0%, #003459 35%, #00171F 100%);
+  background: ${props => (props.isDale ? `` : `linear-gradient(90deg, #007EA7 0%, #003459 35%, #00171F 100%)`)};
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  animation-name: ${props => (props.isDale ? `dele` : ``)};
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  @keyframes dele {
+    0% {
+      background-color: darkgoldenrod;
+    }
+    20% {
+      background-color: darkred;
+    }
+    40% {
+      background-color: darkblue;
+    }
+    60% {
+      background-color: darkmagenta;
+    }
+    80% {
+      background-color: darksalmon;
+    }
+    100% {
+      background-color: darkgoldenrod;
+    }
+  }
 `;
 export const FirstSectionDiv = styled.div`
   margin: 10px;
