@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const HeaderContainer = styled.header`
   grid-area: MH;
   background: linear-gradient(90deg, #007EA7 0%, #003459 35%, #00171F 100%);
 

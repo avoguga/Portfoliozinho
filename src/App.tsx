@@ -37,6 +37,7 @@ function App() {
   const [userProfile, setUserProfile] = useState<IUser>();
   const [userEmail, setUserEmail] = useState();
   const [userName, setUserName] = useState();
+  const [error, setError] = useState();
   const [isUserLogIn, setIsUserLogIn] = useState(true);
 
 
@@ -46,7 +47,7 @@ function App() {
         const name: any = result.user.displayName;
         const email: any = result.user.email;
         const profilePic: any = result.user.photoURL;
-        
+
         setUserName(name);
         setUserEmail(email);
         setUserProfile(profilePic);
@@ -54,12 +55,14 @@ function App() {
       })
       .catch((error) => {
         console.log(error);
+        setError(error);
       });
   };
 
+
   return (
     <Layout>
-      <AuthContext.Provider value={{ userName, userProfile, signInWithGoogle, isUserLogIn }}>
+      <AuthContext.Provider value={{ userName, userProfile, signInWithGoogle, isUserLogIn, error }}>
         <MainHeader />
         <Content />
         <Footer />

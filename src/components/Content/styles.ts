@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const MainContainer = styled.main`
   grid-area: CT;
   background-color: whitesmoke;
 

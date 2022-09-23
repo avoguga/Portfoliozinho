@@ -1,8 +1,8 @@
-import { Container, FirstSection, SecondSection, ThirdSection } from "./styles";
+import { MainContainer, FirstSection, SecondSection, ThirdSection } from "./styles";
 
 export function Content() {
   return (
-    <Container>
+    <MainContainer>
       <FirstSection>
         <h2>Teste o plugin de acessibilidade!</h2>
         <br />
@@ -37,9 +37,7 @@ export function Content() {
         </a>
 
       </FirstSection>
-      <SecondSection>segundo</SecondSection>
-      <ThirdSection>terceiro</ThirdSection>
-    </Container>
+    </MainContainer>
   );
 }
 

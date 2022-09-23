@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div<{isDale: boolean}>`
+export const FooterContainer = styled.footer<{isDale: boolean}>`
   grid-area: FT;
   background: ${props => (props.isDale ? `` : `linear-gradient(90deg, #007EA7 0%, #003459 35%, #00171F 100%)`)};
 
@@ -194,4 +194,12 @@ export const StopButton = styled.button<{isDale: boolean}>`
     box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
     cursor: not-allowed;
   }
+`;
+
+
+export const Text = styled.p`
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
 `;

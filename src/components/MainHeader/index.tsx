@@ -1,5 +1,5 @@
 import {
-  Container,
+  HeaderContainer,
   FirstSectionDiv,
   SecondSectionDiv,
   ThirdSectionDiv,
@@ -18,7 +18,7 @@ export function MainHeader() {
     useContext(AuthContext);
 
   return (
-    <Container>
+    <HeaderContainer>
       <FirstSectionDiv>
         {
         isUserLogIn ? (
@@ -36,7 +36,7 @@ export function MainHeader() {
         <Text>and</Text>
         <Icon src={ React } alt="Foto do Gugas"/>
       </ThirdSectionDiv>
-    </Container>
+    </HeaderContainer>
   );
 }
 
