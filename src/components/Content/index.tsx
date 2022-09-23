@@ -24,17 +24,6 @@ export function Content() {
         <br />  
         <h2>Clique no DALE!</h2>
         <br />
-        <h3>Acesse minhas redes:</h3>
-        <br />
-        <a href="https://www.linkedin.com/in/gustvo/" target="_blank">
-          <img src="https://www.svgrepo.com/show/138936/linkedin.svg" alt="Acesse meu LinkedIn" style={{width: '40px'}}/>
-        </a>
-        <a href="https://twitter.com/o_gstavo" target="_blank">
-          <img src="https://www.svgrepo.com/show/157815/twitter.svg" alt="Acesse meu Twitter" style={{width: '40px'}}/>
-        </a>
-        <a href="https://medium.com/@Gugass" target="_blank">
-          <img src="https://www.svgrepo.com/show/354055/medium.svg" alt="Acesse meu Medium" style={{width: '40px'}}/>
-        </a>
 
       </FirstSection>
     </MainContainer>

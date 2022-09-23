@@ -203,3 +203,21 @@ export const Text = styled.p`
   color: #FFFFFF;
   font-family: 'Inter', sans-serif;
 `;
+
+export const SoundSection = styled.div`
+  position: absolute;
+  left: 100px;
+`;
+
+export const SocialMedia = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: absolute;
+  right: 30px;
+
+  a {
+    margin: 5px;
+  }
+`;
