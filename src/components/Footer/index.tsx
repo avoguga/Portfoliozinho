@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import {
   FooterContainer,
   SoundButton,
@@ -8,45 +8,11 @@ import {
   SocialMedia,
   SoundSection
 } from "./styles";
-import Sound from "../../assets/dale.mp3";
-import { AuthContext, CabareContext } from "../../contexts/AuthContexts";
+import { Context } from "../../contexts/AppContext";
 
 export function Footer() {
-  const { userName, userProfile, signInWithGoogle, isUserLogIn }: any =
-    useContext(AuthContext);
-
-  const audioTune = new Audio(Sound);
-
-  const [audio, setAudio] = useState(audioTune);
-  const [playInLoop, setPlayInLoop] = useState(false);
-  const [isDale, setIsDale] = useState(false);
-
-  useEffect(() => {
-    audioTune.load();
-  }, []);
-
-  useEffect(() => {
-    audioTune.loop = playInLoop;
-  }, [playInLoop]);
-
-  /** Toca a musica */
-  const playSound = () => {
-    audio.play();
-    setIsDale(true);
-  };
-
-  /** Pausa a musica */
-  const pauseSound = () => {
-    setIsDale(false);
-    audio.pause();
-  };
-
-  /** Para a musica */
-  const stopSound = () => {
-    setIsDale(false);
-    audio.pause();
-    audio.currentTime = 0;
-  };
+  const { userName, isDale, playSound, pauseSound, stopSound }: any =
+    useContext(Context);
 
   return (
     <FooterContainer isDale={isDale}>

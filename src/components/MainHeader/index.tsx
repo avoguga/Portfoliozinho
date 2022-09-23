@@ -9,13 +9,13 @@ import {
 } from "./styles";
 import UserCard from "../UserCard";
 import { useContext } from "react";
-import { AuthContext } from "../../contexts/AuthContexts";
+import { Context } from "../../contexts/AppContext";
 import React from "../../assets/react.svg";
 import Vite from "../../assets/vite.svg";
 
 export function MainHeader() {
   const { userName, userProfile, signInWithGoogle, isUserLogIn }: any =
-    useContext(AuthContext);
+    useContext(Context);
 
   return (
     <HeaderContainer>

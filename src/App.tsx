@@ -1,11 +1,12 @@
 import Footer from "./components/Footer";
 import MainHeader from "./components/MainHeader";
-import { AuthContext } from "./contexts/AuthContexts";
+import { Context } from "./contexts/AppContext";
 import { Layout } from "./styles/Layout";
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Content from "./components/Content";
+import Sound from "./assets/dale.mp3";
 
 // Types - Interfaces
 
@@ -32,7 +33,6 @@ export const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 function App() {
-
   // Hooks
   const [userProfile, setUserProfile] = useState<IUser>();
   const [userEmail, setUserEmail] = useState();
@@ -40,6 +40,38 @@ function App() {
   const [error, setError] = useState();
   const [isUserLogIn, setIsUserLogIn] = useState(true);
 
+  const audioTune = new Audio(Sound);
+
+  const [audio, setAudio] = useState(audioTune);
+  const [playInLoop, setPlayInLoop] = useState(false);
+  const [isDale, setIsDale] = useState(false);
+
+  useEffect(() => {
+    audioTune.load();
+  }, []);
+
+  useEffect(() => {
+    audioTune.loop = playInLoop;
+  }, [playInLoop]);
+
+  /** Toca a musica */
+  const playSound = () => {
+    audio.play();
+    setIsDale(true);
+  };
+
+  /** Pausa a musica */
+  const pauseSound = () => {
+    setIsDale(false);
+    audio.pause();
+  };
+
+  /** Para a musica */
+  const stopSound = () => {
+    setIsDale(false);
+    audio.pause();
+    audio.currentTime = 0;
+  };
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
@@ -51,7 +83,7 @@ function App() {
         setUserName(name);
         setUserEmail(email);
         setUserProfile(profilePic);
-        setIsUserLogIn(false)
+        setIsUserLogIn(false);
       })
       .catch((error) => {
         console.log(error);
@@ -59,14 +91,25 @@ function App() {
       });
   };
 
-
   return (
     <Layout>
-      <AuthContext.Provider value={{ userName, userProfile, signInWithGoogle, isUserLogIn, error }}>
+      <Context.Provider
+        value={{
+          userName,
+          userProfile,
+          signInWithGoogle,
+          isUserLogIn,
+          error,
+          playSound,
+          pauseSound,
+          stopSound,
+          isDale,
+        }}
+      >
         <MainHeader />
         <Content />
         <Footer />
-      </AuthContext.Provider>
+      </Context.Provider>
     </Layout>
   );
 }
