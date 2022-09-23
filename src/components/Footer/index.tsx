@@ -16,7 +16,7 @@ export function Footer() {
 
   return (
     <FooterContainer isDale={isDale}>
-      {userName == undefined ? (
+      {userName != undefined ? (
         <SoundSection>
           <SoundButton isDale={isDale} onClick={playSound}>
             DALE
